@@ -1,7 +1,7 @@
 import app from "./server.js";
 import dotenv from "dotenv";
 import mongodb from "mongodb";
-import assert from "assert";
+import ArticlesDBModel from "./model/articlesDBModel.js";
 
 
 dotenv.config();
@@ -12,16 +12,18 @@ const MongoClient = mongodb.MongoClient;
 
 // connection to db
 
-MongoClient.connect(URI).catch(err => {
-    console.error("Fail to connect to database: "+err.stack)
+MongoClient.connect(
+    URI, {
+        maxPoolSize: 50,
+        wtimeoutMS: 2500,
+        useNewUrlParser: true
+    }
+).catch(err => {
+    console.error("Fail to connect to database: " + err.stack)
     process.exit(1)
 }).then(async client => {
-    app.listen(port, ()=> {
-        const db = client.db("personnal-blog");
+    await ArticlesDBModel.injectDB(client);
+    app.listen(port, () => {
         console.log(`listening on port ${port}`);
     })
 })
-
-
-
-
