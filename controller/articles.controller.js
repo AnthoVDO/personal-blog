@@ -1,21 +1,18 @@
-import ArticlesDBModel from "../model/articlesDBModel.js";
+export default class PugPages {
 
-export default class ArticlesController {
-
-    /* work article*/
-
-    static async apiGetArticles(req, res, next) {
-        const articles = await ArticlesDBModel.getArticles();
-        res.json(articles);
+    static homePage() {
+        return "/view/index.pug";
     }
 
-    static async apiPostArticles(req, res, next) {
-
+    static blogPage() {
+        return "/view/blog/blog.pug"
     }
 
-    /* work on form */
-
-    static async apiGetArticleForm(req, res, next) {
-        res.render("./view/blog/postArticle");
+    static newArticlePage() {
+        return "/view/blog/postArticles.pug"
     }
-}
+
+    static contactPage() {
+        return "/view/contact.pug"
+    }
+};

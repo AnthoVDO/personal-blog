@@ -2,11 +2,11 @@
     "name": "anthovdo-blog",
     "version": "1.0.0",
     "description": "personnal blog",
-    "main": "index.js",
+    "main": "server.js",
     "type": "module",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon start index.js"
+        "start": "nodemon start server.js"
     },
     "author": "",
     "license": "ISC",

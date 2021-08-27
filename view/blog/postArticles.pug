@@ -1,0 +1,28 @@
+include ../includes/head.pug 
+include ../includes/navbar.pug
+h1 Create a new article 
+form(action="" method="post" class="newArticle__form ")
+    .newArticle__form__input.mb-3 
+        label(for="name" class="form-label") Enter Author's name
+        input(type="text" name="name" id="name" class="form-control")
+    .newArticle__form__input.mb-3 
+        label(for="title" class="form-label")  Enter title 
+        input(type="text" name="name" id="title" class="form-control")
+    .newArticle__form__input.mb-3
+        label(for="sub-title" class="form-label") Enter sub-title 
+        input(type="text" name="sub-title" id="sub-title" class="form-control")
+    .newArticle__form__input.mb-3 
+        label(for="timeToRead" class="form-label") Time to read (in minutes)
+        input(type="text" name="timeToRead" id="timeToRead" class="form-control")
+        label(for="timeToRead" class="form-label")
+    .newArticlt__form__input.mb-3 
+        label(for="pictureToAdd" class="form-label") Add a picture 
+        input(type="file" name="pictureToAdd" id="pictureToAdd" class="form-control")
+    .newArticle__form__input.mb-3 
+        label(for="content" class="form-label") Content 
+        textarea(type="text" name="content" id="content" cols="30" row="10" class="form-control")
+    .newArticle__form__input.mb-3   
+        input(type="submit" value="Create new article" class="btn btn-primary")
+
+
+include ../includes/footer.pug
